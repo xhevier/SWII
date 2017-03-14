@@ -1,0 +1,2 @@
+# SWII
+Projekt pojistovna
