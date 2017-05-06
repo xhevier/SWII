@@ -57,6 +57,14 @@ p.footer {
     height: 800px;
 }
 
+#container_arator {
+	margin: auto;
+    width: 1500px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: #f9f9f9;
+}
+
 #container_footer{
     margin: auto;
     width: 1500px;
@@ -378,6 +386,154 @@ select > option {
 	margin-top:7px;
 }
 
+.div_for_errors_new_employee{
+	background: white;
+	height:140px;
+	width:100%;
+	border-top: 1px solid #D0D0D0;
+	margin-top: 60px;
+	padding-left:15px;
+	color: red;
+}
+
+.dialogEmployee{
+	width:700px;
+	height:190px;
+	position: fixed;
+	margin-left:400px;
+	margin-right:400px;
+	margin-top:150px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+}
+
+#dialog1{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:12px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog2{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:156px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+	z-index: +9999;
+}
+
+#dialog3{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:302px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog4{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:448px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog5{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:594px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog6{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:740px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog7{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:886px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog8{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:1032px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
+
+#dialog9{
+	width:133px;
+	height:110px;
+	position: fixed;
+	margin-left:1178px;
+	margin-right:400px;
+	margin-top:381px;
+    border: 1px solid #D0D0D0;
+	border-bottom: 0px solid white;
+    box-shadow: 0 0 0px #D0D0D0;
+    background: white;
+	padding-top: 5px;
+}
 
 
 
