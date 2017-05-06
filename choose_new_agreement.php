@@ -1,13 +1,12 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==0 OR $this->session->userdata('permisson')==1) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
 showMenuAdmin(); 
 
-	
 
 	?>	
 	<script>
@@ -45,31 +44,32 @@ showMenuAdmin();
 		<a href=""><img src="<?php echo base_url('images/agr7.png')?>" class="chose_agreement_img" id="a7"></a>
     </div>
 	<div>
-		<div id="b1" class="chose_agreement_img_text"> 
-			<p class="chose_agreement_img_text_header">Životní pojištení</p>
-			<p class="chose_agreement_img_text_header_p">Životní pojištění se uzavírá za účelem, kdy pojistná osoba si přeje mít pojistku sloužící k úhradě finančních výloh v případě pracovní neschopnosti, léčení trvalého úrazu, závažného onemocnění, či výplatu oprávněné osobě v případě úmrtí.</p>
+		<div id="b1" class="chose_agreement_img_text" style="position:fixed"> 
+			<p class="chose_agreement_img_text_header">Životní pojištění</p>
+			<p class="chose_agreement_img_text_header_p">Životní pojištění se uzavírá za účelem, kdy pojistná osoba si přeje mít pojistku sloužící k úhradě finančních výloh v případě pracovní neschopnosti, léčení trvalého úrazu, závažného onemocnění, či výplatu oprávněné osobě v případě úmrtí.</span></p>
 		</div>
-		<div id="b2" class="chose_agreement_img_text"> 
-			<p class="chose_agreement_img_text_header">Cestovní pojištení</p>
-			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
+		<div id="b2" class="chose_agreement_img_text"  style="position:fixed; margin-left:226px"> 
+			<p class="chose_agreement_img_text_header">Cestovní pojištění</p>
+			<p class="chose_agreement_img_text_header_p">Cestovní pojištění se využívá, kdy klient chce být pojištěn při cestách/dovolených do zahraničí. Tato pojistka zahrnuje vždy úrazové pojištění, připojištění odpovědnosti za škodu, připojištění cestovních zavazadel
+připojištění storna zájezdu. Platnost pojištění záleží na klientovi. Lze pojištění zřídit na konkrétní dobu, většinou v období 14 dní, 1 měsíce nebo 1 roka. </p>
 		</div>
-		<div id="b3" class="chose_agreement_img_text"> 
+		<div id="b3" class="chose_agreement_img_text" style="position:fixed; margin-left:439px"> 
 			<p class="chose_agreement_img_text_header">Důchodové pojištení</p>
-			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
+			<p class="chose_agreement_img_text_header_p">Důchodové pojištění je zřizováno k zabezpečení klienta ve stáří, při pracovní neschopnosti způsobenou dlouhodobě zhoršeným zdravotním stavem. Typy důchodového pojištění jsou pojištění starobní, plně invalidní a částečně invalidní, vdovský a vdovecký, sirotčí. </p>
 		</div>
-		<div id="b4" class="chose_agreement_img_text"> 
+		<div id="b4" class="chose_agreement_img_text" style="position:fixed; margin-left:650px"> 
 			<p class="chose_agreement_img_text_header">Športovné pojištení</p>
 			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
 		</div>
-		<div id="b5" class="chose_agreement_img_text"> 
+		<div id="b5" class="chose_agreement_img_text" style="position:fixed; margin-left:863px"> 
 			<p class="chose_agreement_img_text_header">Pojištení vozidla</p>
 			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
 		</div>
-		<div id="b6" class="chose_agreement_img_text"> 
+		<div id="b6" class="chose_agreement_img_text" style="position:fixed; margin-left:1075px"> 
 			<p class="chose_agreement_img_text_header">Pojištení nehnuteľnosti</p>
 			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
 		</div>
-		<div id="b7" class="chose_agreement_img_text"> 
+		<div id="b7" class="chose_agreement_img_text" style="position:fixed; margin-left:1287px"> 
 			<p class="chose_agreement_img_text_header">Živelné pojištení</p>
 			<p class="chose_agreement_img_text_header_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nunc tincidunt ante vitae massa. Sed ac dolor sit amet purus malesuada congue. Fusce tellus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. In convallis. Nulla est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Mauris tincidunt sem sed arcu.</p>
 		</div>

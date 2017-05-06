@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==0 OR $this->session->userdata('permisson')==1) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');

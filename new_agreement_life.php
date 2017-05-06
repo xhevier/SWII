@@ -1,7 +1,7 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==0 OR $this->session->userdata('permisson')==1) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
@@ -214,9 +214,6 @@ showMenuAdmin();
                 <td>					
 					<?php $options2 = array(
 						'1' => 'Měsíčně',
-						'2' => 'Čtvrtletně',
-						'3' => 'Pololetně',
-						'4' => 'Ročně'
 					);
 					echo form_dropdown('newLifeFrequency', $options2, $newAgreementUser['userFrequency'] , 'class="myTextArea" style="width:120px" id="newLifeFrequency"');	?>					
                 </td>				
@@ -235,7 +232,7 @@ showMenuAdmin();
     </div>
 
 
-    <?php
+    <?php echo form_close();
     $this->load->helper('footer');
 } else {
     echo "error, neplatné privilégia";

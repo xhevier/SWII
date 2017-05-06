@@ -1,7 +1,7 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==0 OR $this->session->userdata('permisson')==1) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
@@ -100,8 +100,8 @@ showMenuAdmin();
 							echo form_input('newPensionDateFrom',date('d.m.Y'),'class="myTextAreaNoEdit" readonly style="width:100px; float:left" id="newPensionDateFrom"'); 
 							echo form_input('newPensionDateTo',$newAgreementUser['userDateTo'],'class="myTextAreaNoEdit" readonly style="width:100px; float:left; margin-left:5px" id="newPensionDateTo"');
 							echo '<a class="button" style="float:left; margin-left:5px; width:80px; height: 28px" id="newUserOneYear"><span id="spanOne">Deset let<span></a>';
-							echo '<a class="button" style="float:left; margin-left:5px; width:95px; height: 28px" id="newUserTwoYear"><span id="spanTwo">Dvadset let<span></a>';
-							echo '<a class="button" style="float:left; margin-left:5px; width:80px; height: 28px" id="newUserTreeYear"><span id="spanTree">Třitset let<span></a>';
+							echo '<a class="button" style="float:left; margin-left:5px; width:95px; height: 28px" id="newUserTwoYear"><span id="spanTwo">Dvacet let<span></a>';
+							echo '<a class="button" style="float:left; margin-left:5px; width:80px; height: 28px" id="newUserTreeYear"><span id="spanTree">Třicet let<span></a>';
 							echo '<a class="button" style="float:left; margin-left:5px; width:90px; height: 28px" id="newUserTreeYear"><span id="spanTree">Padesát let<span></a>';
 						echo '</div>';
 					?>	
