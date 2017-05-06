@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==4) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
-showMenuAdmin(); 
+showMenuAdviser(); 
 ?>
 	<script>
 		$(document).ready(function(){
@@ -26,7 +26,7 @@ showMenuAdmin();
 					<div class="button-group" style="float:left">
 						<?php echo form_input('newLifePIN',$newAgreementUser['newPIN'],'class="myTextArea" style="width:110px; float: left" id="newLifePIN"');?>
 						<?php echo form_submit('newLifeTrace', 'Dohledat', 'class="button" style="float:left; margin-left:5px"')?>
-						<?php /*<a href="<?php echo base_url('Admin/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
+						<?php /*<a href="<?php echo base_url('Adviser/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
 					</div>
 					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
 						<?php echo $newAgreementUser['errorMessage']?>

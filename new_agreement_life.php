@@ -1,11 +1,11 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==4) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
-showMenuAdmin(); 
+showMenuAdviser(); 
 	?>	
 	<script>
 		$(document).ready(function(){
@@ -81,7 +81,7 @@ showMenuAdmin();
 	</script>
 	
     <h1>Založení životního pojištení</h1>
-	<?php echo form_open('Admin/newLifeAgreement')?>
+	<?php echo form_open('Adviser/newLifeAgreement')?>
     <div>
          <table class="form_table">  
 			<tr>
@@ -92,7 +92,7 @@ showMenuAdmin();
 					<div class="button-group" style="float:left">
 						<?php echo form_input('newLifePIN',$newAgreementUser['newPIN'],'class="myTextArea" style="width:110px; float: left" id="newLifePIN"');?>
 						<?php echo form_submit('newLifeTrace', 'Dohledat', 'class="button" style="float:left; margin-left:5px"')?>
-						<?php /*<a href="<?php echo base_url('Admin/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
+						<?php /*<a href="<?php echo base_url('Adviser/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
 					</div>
 					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
 						<?php echo $newAgreementUser['errorMessage']?>
@@ -214,9 +214,6 @@ showMenuAdmin();
                 <td>					
 					<?php $options2 = array(
 						'1' => 'Měsíčně',
-						'2' => 'Čtvrtletně',
-						'3' => 'Pololetně',
-						'4' => 'Ročně'
 					);
 					echo form_dropdown('newLifeFrequency', $options2, $newAgreementUser['userFrequency'] , 'class="myTextArea" style="width:120px" id="newLifeFrequency"');	?>					
                 </td>				
@@ -225,8 +222,8 @@ showMenuAdmin();
 		
 		<div class="div_lane" style="margin-top:230px;"></div>
 		<?php echo '<div class="button-group" style="float:left; margin-top:15px; margin-left: 15px">'; ?>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/0')?>" onclick="" class="button" id="newUserTrace">Zpět</a>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">Vyčistit</a>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/0')?>" onclick="" class="button" id="newUserTrace">Zpět</a>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">Vyčistit</a>
 			<?php echo form_submit('newLifeTrace', 'Uložit', 'class="button"')?>
 		</div>
 		<?php 
@@ -235,7 +232,7 @@ showMenuAdmin();
     </div>
 
 
-    <?php
+    <?php echo form_close();
     $this->load->helper('footer');
 } else {
     echo "error, neplatné privilégia";

@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==4) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
-showMenuAdmin(); 
+showMenuAdviser(); 
 	?>	
 	<script>
 		$(document).ready(function(){
@@ -14,18 +14,18 @@ showMenuAdmin();
 		});
 	</script>
 
- <h1>Zaloení sportovního pojištení</h1>
+ <h1>ZaloÅ¾enÃ­ sportovnÃ­ho pojiÅ¡tenÃ­</h1>
     <div>
          <table class="form_table">  
 			<tr>
 				<td>
-					Rodné èíslo
+					RodnÃ© ÄÃ­slo
 				</td>
 				<td width="1000px">					
 					<div class="button-group" style="float:left">
 						<?php echo form_input('newLifePIN',$newAgreementUser['newPIN'],'class="myTextArea" style="width:110px; float: left" id="newLifePIN"');?>
 						<?php echo form_submit('newLifeTrace', 'Dohledat', 'class="button" style="float:left; margin-left:5px"')?>
-						<?php /*<a href="<?php echo base_url('Admin/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
+						<?php /*<a href="<?php echo base_url('Adviser/getUserTrace/1/0')?>" onclick="" class="button" style="float:left; margin-left:5px" id="newUserTrace">Dohledat</a>	*/?>						
 					</div>
 					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
 						<?php echo $newAgreementUser['errorMessage']?>
@@ -34,7 +34,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Titul, jméno a pøíjmení
+					Titul, jmÃ©no a pÅ™Ã­jmenÃ­
 				</td>
 				<td>
 					<?php 
@@ -43,7 +43,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Datum narození
+					Datum narozenÃ­
 				</td>
 				<td>
 					<?php 
@@ -52,7 +52,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Vìk
+					VÄ›k
 				</td>
 				<td>
 					<?php 
@@ -61,7 +61,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Trvalı pobyt
+					TrvalÃ½ pobyt
 				</td>
 				<td>
 					<?php 
@@ -70,7 +70,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Stát
+					StÃ¡t
 				</td>
 				<td>
 					<?php 
@@ -79,7 +79,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td style="color: grey">
-					Bankovní spojení
+					BankovnÃ­ spojenÃ­
 				</td>
 				<td>
 					<?php 
@@ -93,7 +93,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td width="200px">
-					Doloení lékaøské zprávy
+					DoloÅ¾enÃ­ lÃ©kaÅ™skÃ© zprÃ¡vy
 				</td>			
 				<td>
 					<label class="switch">
@@ -105,16 +105,16 @@ showMenuAdmin();
 
 			<tr>
 				<td>
-					Úèel uzavøení pojistky
+					ÃšÄel uzavÅ™enÃ­ pojistky
 				</td>
 				<td>
 					<?php 
 					echo '<div style="float:left">';
 						$options = array(
-							'1' => 'Pracovní neschopnost',
-							'2' => 'Trvalé následky',
+							'1' => 'PracovnÃ­ neschopnost',
+							'2' => 'TrvalÃ© nÃ¡sledky',
 							'3' => 'Invalidita',
-							'4' => 'Smrt následkem úrazu',
+							'4' => 'Smrt nÃ¡sledkem Ãºrazu',
 							'5' => 'Pobyt v nemocnici',
 							
 						);
@@ -127,7 +127,7 @@ showMenuAdmin();
 			</tr>
 			<tr>
 				<td>
-					Vıše pojistného
+					VÃ½Å¡e pojistnÃ©ho
 				</td>
 				<td>
 					<?php 
@@ -135,7 +135,7 @@ showMenuAdmin();
 						echo form_input('newLifePrice',$newAgreementUser['userPrice'],'class="myTextArea" id="newLifePrice" style="width:100px"'); 
 						$options = array(
 							'Eur' => 'Eur',
-							'Kè' => 'Kè',
+							'KÄ' => 'KÄ',
 						);
 						echo form_dropdown('newLifeCurrency',$options, $newAgreementUser['userCurrency'] ,'class="myTextArea" style="width:70px" id="newLifeCurrency"'); 
 					echo '</div>';?> 
@@ -169,10 +169,10 @@ showMenuAdmin();
                 </td>
                 <td>					
 					<?php $options2 = array(
-						'1' => 'Mìsíènì',
-						'2' => 'Ètvrtletnì',
-						'3' => 'Pololetnì',
-						'4' => 'Roènì'
+						'1' => 'MÄ›sÃ­ÄnÄ›',
+						'2' => 'ÄŒtvrtletnÄ›',
+						'3' => 'PololetnÄ›',
+						'4' => 'RoÄnÄ›'
 					);
 					echo form_dropdown('newLifeFrequency', $options2, $newAgreementUser['userFrequency'] , 'class="myTextArea" style="width:120px" id="newLifeFrequency"');	?>					
                 </td>				
@@ -181,9 +181,9 @@ showMenuAdmin();
 		
 		<div class="div_lane" style="margin-top:230px;"></div>
 		<?php echo '<div class="button-group" style="float:left; margin-top:15px; margin-left: 15px">'; ?>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/0')?>" onclick="" class="button" id="newUserTrace">Zpìt</a>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">Vyèistit</a>
-			<?php echo form_submit('newLifeTrace', 'Uloit', 'class="button"')?>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/0')?>" onclick="" class="button" id="newUserTrace">ZpÄ›t</a>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">VyÄistit</a>
+			<?php echo form_submit('newLifeTrace', 'UloÅ¾it', 'class="button"')?>
 		</div>
 		<?php 
 			echo form_close();
@@ -193,5 +193,5 @@ showMenuAdmin();
  <?php
     $this->load->helper('footer');
 } else {
-    echo "error, neplatné privilégia";
+    echo "error, neplatnÃ© privilÃ©gia";
 }

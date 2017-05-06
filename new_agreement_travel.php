@@ -1,22 +1,88 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ($this->session->userdata('permisson')==0) {
+if ($this->session->userdata('permisson')==4) {
 $this->load->helper('header');
 showHeader();
 $this->load->helper('menu');
-showMenuAdmin(); 
+showMenuAdviser(); 
 	?>	
 	<script>
 		$(document).ready(function(){
 			$("#menuAgreements").css("background-color", "#00B4D7");
 			$("#menuAgreementsW").css("color", "white");
+			
+			if($('#newTravelName').val()!=''){
+				/*Platnost od*/
+				$("#newTravelDateFrom").prop("readonly", false);
+				$("#newTravelDateFrom").removeClass("myTextAreaNoEdit");
+				$("#newTravelDateFrom").addClass("myTextArea");
+				/*Platnost do*/
+				$("#newTravelDateTo").prop("readonly", false);
+				$("#newTravelDateTo").removeClass("myTextAreaNoEdit");
+				$("#newTravelDateTo").addClass("myTextArea");
+				/* Price */
+				$("#newTravelPrice").prop("readonly", false);
+				$("#newTravelPrice").removeClass("myTextAreaNoEdit");
+				$("#newTravelPrice").addClass("myTextArea");
+				/* Currency */
+				$("#newTravelCurrency").css("background-color", "white");
+				$("#newTravelCurrency").val('1');
+				$("#newTravelCurrency").prop("readonly", false);
+				$("#newTravelCurrency").removeClass("myTextAreaNoEdit");
+				$("#newTravelCurrency").addClass("myTextArea");
+				/* Destinace */
+				$("#newTravelDestination").css("background-color", "white");
+				$("#newTravelDestination").val('1');
+				$("#newTravelDestination").prop("readonly", false);
+				$("#newTravelDestination").removeClass("myTextAreaNoEdit");
+				$("#newTravelDestination").addClass("myTextArea");
+				/* PayType */
+				$("#newTravelPayType").css("background-color", "white");
+				$("#newTravelPayType").val('1');
+				$("#newTravelPayType").prop("readonly", false);
+				$("#newTravelPayType").removeClass("myTextAreaNoEdit");
+				$("#newTravelPayType").addClass("myTextArea");
+				
+			}else {
+				/*Platnost od*/
+				$("#newTravelDateFrom").prop("readonly", true);
+				$("#newTravelDateFrom").removeClass("myTextArea");
+				$("#newTravelDateFrom").addClass("myTextAreaNoEdit");
+				/*Platnost do*/
+				$("#newTravelDateTo").prop("readonly", true);
+				$("#newTravelDateTo").removeClass("myTextArea");
+				$("#newTravelDateTo").addClass("myTextAreaNoEdit");
+				/* Price */
+				$("#newTravelPrice").prop("readonly", true);
+				$("#newTravelPrice").removeClass("myTextArea");
+				$("#newTravelPrice").addClass("myTextAreaNoEdit");
+				/* Currency */
+				$("#newTravelCurrency").css("background-color", "#f9f9f9");
+				$("#newTravelCurrency").val('0');
+				$("#newTravelCurrency").prop("readonly", false);
+				$("#newTravelCurrency").removeClass("myTextAreaNoEdit");
+				$("#newTravelCurrency").addClass("myTextArea");
+				/* Destinace */
+				$("#newTravelDestination").css("background-color", "#f9f9f9");
+				$("#newTravelDestination").val('0');
+				$("#newTravelDestination").prop("readonly", false);
+				$("#newTravelDestination").removeClass("myTextAreaNoEdit");
+				$("#newTravelDestination").addClass("myTextArea");
+				/* PayType */
+				$("#newTravelPaytype").css("background-color", "#f9f9f9");
+				$("#newTravelPaytype").val('0');
+				$("#newTravelPaytype").prop("readonly", false);
+				$("#newTravelPaytype").removeClass("myTextAreaNoEdit");
+				$("#newTravelPaytype").addClass("myTextArea");
+
+			};
 		});	
 	</script>
-	
     <h1>Založení cestovního pojištení</h1>
-
+	<?php echo form_open('Adviser/newTravelAgreement');?>
     <div>
+	
          <table class="form_table">  
 			<tr>
 				<td>
@@ -24,11 +90,11 @@ showMenuAdmin();
 				</td>
 				<td width="1000px">					
 					<div class="button-group" style="float:left">
-						<?php echo form_input('newTravelPIN',$newAgreementUser['newPIN'],'class="myTextArea" style="width:110px; float: left" id="newTravelPIN"');?>
+						<?php echo form_input('newTravelPIN',$newAgreementUser['newTravelPIN'],'class="myTextArea" style="width:110px; float: left" id="newTravelPIN"');?>
 						<?php echo form_submit('newTravelTrace', 'Dohledat', 'class="button" style="float:left; margin-left:5px"')?>					
 					</div>
 					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
-						<?php echo $newAgreementUser['errorMessage']?>
+						<?php echo $newAgreementUser['errorTravelMessage']?>
 					</p>
 				</td>
 			</tr>
@@ -38,7 +104,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelName',$newAgreementUser['userName'],'class="myTextAreaNoEdit" readonly id="newTravelName"'); ?> 
+					echo form_input('newTravelName',$newAgreementUser['newTravelName'],'class="myTextAreaNoEdit" readonly id="newTravelName"'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -47,7 +113,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelBirthDate',$newAgreementUser['userBirth'],'class="myTextAreaNoEdit" readonly style="width:100px"'); ?> 
+					echo form_input('newTravelBirthDate',$newAgreementUser['newTravelBirthDate'],'class="myTextAreaNoEdit" readonly style="width:100px"'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -56,7 +122,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelYears',$newAgreementUser['userAge'],'class="myTextAreaNoEdit" readonly style="width:40px"'); ?> 
+					echo form_input('newTravelYears',$newAgreementUser['newTravelYears'],'class="myTextAreaNoEdit" readonly style="width:40px"'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -65,7 +131,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelAdress',$newAgreementUser['userAdress'],'class="myTextAreaNoEdit" readonly'); ?> 
+					echo form_input('newTravelAdress',$newAgreementUser['newTravelAdress'],'class="myTextAreaNoEdit" readonly'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -74,7 +140,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelState',$newAgreementUser['userState'],'class="myTextAreaNoEdit" readonly'); ?> 
+					echo form_input('newTravelState',$newAgreementUser['newTravelState'],'class="myTextAreaNoEdit" readonly'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -83,7 +149,7 @@ showMenuAdmin();
 				</td>
 				<td>
 					<?php 
-					echo form_input('newTravelBank',$newAgreementUser['userBank'],'class="myTextAreaNoEdit" readonly style="width:305px"'); ?> 
+					echo form_input('newTravelBank',$newAgreementUser['newTravelBank'],'class="myTextAreaNoEdit" readonly style="width:305px"'); ?> 
 				</td>
 			</tr>
 			<tr>
@@ -98,12 +164,12 @@ showMenuAdmin();
                 <td>					
 					<?php 					
 						echo '<div class="button-group" style="float:left">';
-							echo form_input('newTravelDateFrom',$newAgreementUser['userDateFrom'],'class="myTextArea" style="width:100px; float:left" id="newTravelDateFrom"'); 
-							echo form_input('newTravelDateTo',$newAgreementUser['userDateTo'],'class="myTextArea" style="width:100px; float:left; margin-left:5px" id="newTravelDateTo"');
+							echo form_input('newTravelDateFrom',$newAgreementUser['newTravelDateFrom'],'class="myTextArea" style="width:100px; float:left" id="newTravelDateFrom"'); 
+							echo form_input('newTravelDateTo',$newAgreementUser['newTravelDateTo'],'class="myTextArea" style="width:100px; float:left; margin-left:5px" id="newTravelDateTo"');
 						echo '</div>';
 					?>	
-					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
-						<?php echo $newAgreementUser['errorMessageDateTo']?>
+					<p style="color: red; float:left; margin-top: 6px; margin-left:10px">
+						<?php echo $newAgreementUser['errorMessageDate']?>
 					</p>
                 </td>				
 			</tr>
@@ -114,15 +180,15 @@ showMenuAdmin();
 				<td>
 					<?php 
 					echo '<div style="float:left">';
-						echo form_input('newTravelPrice',$newAgreementUser['userPrice'],'class="myTextArea" id="newTravelPrice" style="width:100px"'); 
+						echo form_input('newTravelPrice',$newAgreementUser['newTravelPrice'],'class="myTextArea" id="newTravelPrice" style="width:100px"'); 
 						$options = array(
-							'Eur' => 'Eur',
-							'Kč' => 'Kč',
+							'1' => 'Kč',
+							'2' => 'Eur',
 						);
-						echo form_dropdown('newTravelCurrency',$options, $newAgreementUser['userCurrency'] ,'class="myTextArea" style="width:70px" id="newTravelCurrency"'); 
+						echo form_dropdown('newTravelCurrency',$options, $newAgreementUser['newTravelCurrency'] ,'class="myTextArea" style="width:70px" id="newTravelCurrency"'); 
 					echo '</div>';?> 
-					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
-						<?php echo $newAgreementUser['errorMessagePrice']?>
+					<p style="color: red; float:left; margin-top: 6px; margin-left:10px;">
+						<?php echo $newAgreementUser['errorMessageCurrency']?>
 					</p>
 				</td>
 			</tr>
@@ -146,11 +212,8 @@ showMenuAdmin();
 							'10' => 'Severná Amerika',
 							'11' => 'Južná Amerika'
 						);
-						echo form_dropdown('newTravelDestination',$options, $newAgreementUser['userDestination'] ,'class="myTextArea" style="width:250px" id="newTravelCurrency"'); 
+						echo form_dropdown('newTravelDestination',$options, $newAgreementUser['newTravelDestination'] ,'class="myTextArea" style="width:250px" id="newTravelDestination"'); 
 					echo '</div>';?> 
-					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
-						<?php echo $newAgreementUser['errorMessagePrice']?>
-					</p>
 				</td>
 			</tr>
 			<tr>
@@ -168,19 +231,16 @@ showMenuAdmin();
 							'5' => 'Poštovní poukázkou',
 							'6' => 'SIPO'
 						);
-						echo form_dropdown('newTravelPayType',$options2, $newAgreementUser['userPayType'] ,'class="myTextArea" style="width:250px" id="newTravelPaytype"'); 
+						echo form_dropdown('newTravelPayType',$options2, $newAgreementUser['newTravelPayType'] ,'class="myTextArea" style="width:250px" id="newTravelPaytype"'); 
 					echo '</div>';?> 
-					<p style="color: red; float:left; margin-top: 6px; margin-left:10px; font-weight: bold;">
-						<?php echo $newAgreementUser['errorMessagePrice']?>
-					</p>
 				</td>
 			</tr>
 		</table>
 		
 		<div class="div_lane" style="margin-top:230px;"></div>
 		<?php echo '<div class="button-group" style="float:left; margin-top:15px; margin-left: 15px">'; ?>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/0')?>" onclick="" class="button" id="newUserTrace">Zpět</a>
-			<a href="<?php echo base_url('Admin/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">Vyčistit</a>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/1')?>" onclick="" class="button" id="newUserTrace">Zpět</a>
+			<a href="<?php echo base_url('Adviser/redirectChooseNewAgreement/2')?>" onclick="" class="button" id="newUserTrace">Vyčistit</a>
 			<?php echo form_submit('newLifeTrace', 'Uložit', 'class="button"')?>
 		</div>
 		<?php 
